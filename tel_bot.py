@@ -36,7 +36,7 @@ def get_weather(city, open_weather_token):
         sunrise_timestamp = datetime.datetime.fromtimestamp(data['sys']['sunrise'])
         sunset_timestamp = datetime.datetime.fromtimestamp(data['sys']['sunset'])
         length_of_day = sunset_timestamp - sunrise_timestamp
-        print(type(pressure))
+
         print(f'Погода в городе: {city}\nТемпература:{current_temp}°С {we}\n' 
               f'Влажность: {humidity}%\nДавление: {int(pressure)}мм.рт.столба\n'
               f'Восход солнца: {sunrise_timestamp}\nЗакат солнца : {sunset_timestamp}\n'
