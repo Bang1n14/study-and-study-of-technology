@@ -32,13 +32,14 @@ def get_weather(city, open_weather_token):
             we = 'Нету смайлика'
 
         humidity = data['main']['humidity']
-        pressure = data['main']['pressure']
+        pressure = data['main']['pressure'] * 0.750063755419211
         sunrise_timestamp = datetime.datetime.fromtimestamp(data['sys']['sunrise'])
         sunset_timestamp = datetime.datetime.fromtimestamp(data['sys']['sunset'])
         length_of_day = sunset_timestamp - sunrise_timestamp
+        print(type(pressure))
         print(f'Погода в городе: {city}\nТемпература:{current_temp}°С {we}\n' 
-              f'Влажность:{humidity}\nДавление: {(int(pressure) * 0,750063755419211)}мм.рт.столба\n'
-              f'Восход солнца: {sunrise_timestamp} Закат солнца : {sunset_timestamp}\n'
+              f'Влажность: {humidity}%\nДавление: {int(pressure)}мм.рт.столба\n'
+              f'Восход солнца: {sunrise_timestamp}\nЗакат солнца : {sunset_timestamp}\n'
               f'Длинна дня {length_of_day}')
     except Exception as ex:
         print(ex)
